@@ -10,6 +10,20 @@ servers:
 tags:
   - name: health
     description: Health operations
+  - name: dashboard
+    description: Personalized dashboard data
+  - name: wardrobe
+    description: Digital wardrobe items
+  - name: outfits
+    description: AI-generated outfits
+  - name: looks
+    description: Saved and trending looks
+  - name: profile
+    description: Personal style profile
+  - name: stylist
+    description: AI stylist conversation
+  - name: weather
+    description: Weather-aware styling context
 paths:
   /healthz:
     get:
@@ -24,7 +38,199 @@ paths:
             application/json:
               schema:
                 $ref: "#/components/schemas/HealthStatus"
+  /dashboard:
+    get:
+      operationId: getDashboard
+      tags: [dashboard]
+      summary: Get dashboard overview
+      responses:
+        "200":
+          description: Dashboard overview
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Dashboard"
+  /wardrobe:
+    get:
+      operationId: getWardrobe
+      tags: [wardrobe]
+      summary: List wardrobe items
+      responses:
+        "200":
+          description: Wardrobe items
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/WardrobeItem"
+    post:
+      operationId: createWardrobeItem
+      tags: [wardrobe]
+      summary: Add an item to the wardrobe
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/WardrobeItemInput"
+      responses:
+        "201":
+          description: Created wardrobe item
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/WardrobeItem"
+  /wardrobe/{id}:
+    delete:
+      operationId: deleteWardrobeItem
+      tags: [wardrobe]
+      summary: Remove a wardrobe item
+      parameters:
+        - $ref: "#/components/parameters/Id"
+      responses:
+        "204":
+          description: Wardrobe item removed
+  /outfits/generate:
+    post:
+      operationId: generateOutfit
+      tags: [outfits]
+      summary: Generate a personalized outfit
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/OutfitGenerateInput"
+      responses:
+        "200":
+          description: Generated outfit
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Outfit"
+  /looks/trending:
+    get:
+      operationId: getTrendingLooks
+      tags: [looks]
+      summary: Get trending looks
+      responses:
+        "200":
+          description: Trending looks
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/Look"
+  /looks/saved:
+    get:
+      operationId: getSavedLooks
+      tags: [looks]
+      summary: Get saved looks
+      responses:
+        "200":
+          description: Saved looks
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/Look"
+    post:
+      operationId: saveLook
+      tags: [looks]
+      summary: Save an outfit
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/LookInput"
+      responses:
+        "201":
+          description: Saved look
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Look"
+  /looks/saved/{id}:
+    delete:
+      operationId: deleteSavedLook
+      tags: [looks]
+      summary: Remove a saved look
+      parameters:
+        - $ref: "#/components/parameters/Id"
+      responses:
+        "204":
+          description: Saved look removed
+  /profile:
+    get:
+      operationId: getStyleProfile
+      tags: [profile]
+      summary: Get style profile
+      responses:
+        "200":
+          description: Style profile
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/StyleProfile"
+    patch:
+      operationId: updateStyleProfile
+      tags: [profile]
+      summary: Update style profile
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/StyleProfileUpdate"
+      responses:
+        "200":
+          description: Updated style profile
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/StyleProfile"
+  /stylist/chat:
+    post:
+      operationId: sendStylistMessage
+      tags: [stylist]
+      summary: Ask the AI stylist a question
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/StylistMessageInput"
+      responses:
+        "200":
+          description: Stylist response
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/StylistMessage"
+  /weather/current:
+    get:
+      operationId: getCurrentWeather
+      tags: [weather]
+      summary: Get current styling weather
+      responses:
+        "200":
+          description: Current weather
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Weather"
 components:
+  parameters:
+    Id:
+      name: id
+      in: path
+      required: true
+      schema:
+        type: string
   schemas:
     HealthStatus:
       type: object
@@ -33,4 +239,148 @@ components:
           type: string
       required:
         - status
+    Dashboard:
+      type: object
+      required: [userName, wardrobeCount, savedLooksCount, styleScore, weather, recommendation, recentLooks]
+      properties:
+        userName: { type: string }
+        wardrobeCount: { type: number }
+        savedLooksCount: { type: number }
+        styleScore: { type: number }
+        weather: { $ref: "#/components/schemas/Weather" }
+        recommendation: { $ref: "#/components/schemas/Outfit" }
+        recentLooks:
+          type: array
+          items: { $ref: "#/components/schemas/Look" }
+    Weather:
+      type: object
+      required: [city, temperature, condition, humidity, rainProbability]
+      properties:
+        city: { type: string }
+        temperature: { type: number }
+        condition: { type: string }
+        humidity: { type: number }
+        rainProbability: { type: number }
+    WardrobeItem:
+      type: object
+      required: [id, name, category, color, style, imageUrl, wearCount, isFavorite]
+      properties:
+        id: { type: string }
+        name: { type: string }
+        category: { type: string }
+        color: { type: string }
+        style: { type: string }
+        imageUrl: { type: string }
+        wearCount: { type: number }
+        isFavorite: { type: boolean }
+    WardrobeItemInput:
+      type: object
+      required: [name, category, color, style, imageUrl]
+      properties:
+        name: { type: string }
+        category: { type: string }
+        color: { type: string }
+        style: { type: string }
+        imageUrl: { type: string }
+    OutfitGenerateInput:
+      type: object
+      required: [occasion, style, weather, color, budget, source]
+      properties:
+        occasion: { type: string }
+        style: { type: string }
+        weather: { type: string }
+        color: { type: string }
+        budget: { type: string }
+        source: { type: string }
+    Outfit:
+      type: object
+      required: [id, name, style, occasion, weather, totalPrice, score, palette, items]
+      properties:
+        id: { type: string }
+        name: { type: string }
+        style: { type: string }
+        occasion: { type: string }
+        weather: { type: string }
+        totalPrice: { type: number }
+        score: { type: number }
+        palette:
+          type: array
+          items: { type: string }
+        items:
+          type: array
+          items: { $ref: "#/components/schemas/OutfitItem" }
+    OutfitItem:
+      type: object
+      required: [slot, name, imageUrl, price]
+      properties:
+        slot: { type: string }
+        name: { type: string }
+        imageUrl: { type: string }
+        price: { type: number }
+    Look:
+      type: object
+      required: [id, title, style, imageUrl, score, isSaved, tags]
+      properties:
+        id: { type: string }
+        title: { type: string }
+        style: { type: string }
+        imageUrl: { type: string }
+        score: { type: number }
+        isSaved: { type: boolean }
+        tags:
+          type: array
+          items: { type: string }
+    LookInput:
+      type: object
+      required: [title, style, imageUrl, score, tags]
+      properties:
+        title: { type: string }
+        style: { type: string }
+        imageUrl: { type: string }
+        score: { type: number }
+        tags:
+          type: array
+          items: { type: string }
+    StyleProfile:
+      type: object
+      required: [name, styles, colors, occasions, budget]
+      properties:
+        name: { type: string }
+        styles:
+          type: array
+          items: { type: string }
+        colors:
+          type: array
+          items: { type: string }
+        occasions:
+          type: array
+          items: { type: string }
+        budget: { type: string }
+    StyleProfileUpdate:
+      type: object
+      required: [styles, colors, occasions, budget]
+      properties:
+        styles:
+          type: array
+          items: { type: string }
+        colors:
+          type: array
+          items: { type: string }
+        occasions:
+          type: array
+          items: { type: string }
+        budget: { type: string }
+    StylistMessageInput:
+      type: object
+      required: [message]
+      properties:
+        message: { type: string }
+    StylistMessage:
+      type: object
+      required: [reply, suggestions]
+      properties:
+        reply: { type: string }
+        suggestions:
+          type: array
+          items: { type: string }
 

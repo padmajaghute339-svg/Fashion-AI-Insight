@@ -1,0 +1,647 @@
+Create a professional, modern, premium AI-powered fashion styling website called “StyleAI” — an intelligent personal AI stylist that helps users create outfits, manage their wardrobe, discover fashion trends, and shop complete looks.
+
+The website should look like a real production-ready fashion-tech startup, not a basic student project. Use a clean, elegant, minimal fashion aesthetic with premium typography, smooth animations, beautiful clothing imagery, rounded cards, subtle shadows, spacious layouts, and a responsive design for desktop, tablet, and mobile.
+
+CORE CONCEPT:
+“Your AI Stylist That Knows Your Wardrobe.”
+
+The main user flow should be:
+Upload clothes → Build digital wardrobe → Select occasion/weather/style → AI generates outfit → Customize outfit → Get style score → Save outfit → Shop the look.
+
+TECH STACK:
+- React
+- Tailwind CSS
+- React Router
+- Framer Motion for animations
+- Python + FastAPI backend
+- PostgreSQL or MongoDB database
+- AI API integration
+- Weather API integration
+- Computer vision/image processing
+- REST APIs
+Create the frontend architecture so the backend/API integrations can be connected later.
+
+==================================================
+1. LANDING / HOME PAGE
+==================================================
+
+Create a premium fashion landing page with:
+
+Hero section:
+- Large headline:
+  “Your AI Stylist. Your Wardrobe. Your Perfect Look.”
+- Supporting text:
+  “Create personalized outfits from your own wardrobe based on your style, occasion, weather, and budget.”
+- Primary CTA: “Create My Outfit”
+- Secondary CTA: “Explore Looks”
+- Large fashion-focused visual showing a stylish outfit composition.
+
+Add a small trust/features row:
+“AI Powered • Personalized • Weather Aware • Wardrobe Based”
+
+Sections:
+- How it works
+- AI outfit generator preview
+- Trending looks
+- Occasion-based styling
+- Virtual wardrobe preview
+- Style score preview
+- Shop the look
+- Testimonials
+- Final CTA
+
+==================================================
+2. USER AUTHENTICATION
+==================================================
+
+Create:
+- Sign Up
+- Login
+- Forgot Password
+- Google Login UI
+- Profile setup
+
+During onboarding ask users:
+- Favorite colors
+- Favorite styles
+- Preferred clothing types
+- Common occasions
+- Budget range
+- Fashion preferences
+
+Create a progress indicator for onboarding.
+
+==================================================
+3. USER DASHBOARD
+==================================================
+
+Create a beautiful dashboard with:
+
+Greeting:
+“Good afternoon, Padmaja 👋”
+
+Dashboard cards:
+- Create Outfit
+- My Wardrobe
+- Saved Looks
+- Style Profile
+- Trending Now
+
+Add:
+- Today’s outfit recommendation
+- Weather information
+- “What should I wear today?”
+- Recently generated outfits
+- Favorite looks
+- Style insights
+
+==================================================
+4. AI OUTFIT GENERATOR
+==================================================
+
+This should be the main feature.
+
+Create a multi-step outfit generation interface.
+
+Step 1:
+Choose occasion:
+- College
+- Office
+- Casual
+- Date
+- Party
+- Wedding
+- Travel
+- Gym
+- Festival
+
+Step 2:
+Choose style:
+- Minimal
+- Casual
+- Formal
+- Streetwear
+- Old Money
+- Y2K
+- Korean-inspired
+- Traditional
+- Indo-Western
+
+Step 3:
+Choose weather:
+- Automatically detect current weather using weather API
+- Or allow manual selection
+
+Step 4:
+Choose color preferences.
+
+Step 5:
+Choose budget:
+- Under ₹500
+- ₹500–₹1,000
+- ₹1,000–₹2,000
+- Premium
+
+Step 6:
+Choose:
+“Use My Wardrobe”
+or
+“Discover New Items”
+
+Add a large button:
+“✨ Generate My Outfit”
+
+Show a loading animation while AI generates the outfit.
+
+==================================================
+5. AI GENERATED OUTFIT RESULT
+==================================================
+
+Display the generated outfit as a beautiful fashion composition.
+
+Example:
+
+TOP
+White Oversized T-Shirt
+
+BOTTOM
+Blue Wide-Leg Jeans
+
+SHOES
+White Sneakers
+
+BAG
+Beige Tote Bag
+
+ACCESSORIES
+Minimal Gold Earrings
+
+Show:
+- Outfit name
+- Style type
+- Occasion
+- Weather suitability
+- Estimated total price
+- Color palette
+
+Add:
+
+“AI Style Score: 92/100”
+
+Break score into:
+- Color Combination
+- Occasion Match
+- Style
+- Weather Suitability
+- Accessories
+
+Add buttons:
+❤️ Save Outfit
+🔄 Regenerate
+✨ Improve Outfit
+🛍️ Shop This Look
+📤 Share
+
+==================================================
+6. VIRTUAL WARDROBE
+==================================================
+
+Create a digital wardrobe page.
+
+Users can:
+- Upload clothing images
+- Drag and drop images
+- Remove background automatically
+- Categorize clothing using AI
+- Edit item information
+- Delete items
+- Favorite items
+
+Categories:
+- Tops
+- Bottoms
+- Dresses
+- Jackets
+- Shoes
+- Bags
+- Accessories
+
+Each item should display:
+- Image
+- Name
+- Category
+- Color
+- Style
+- Usage frequency
+
+Add search and filters.
+
+Example:
+“Show me all black tops.”
+
+==================================================
+7. MIX & MATCH OUTFIT BUILDER
+==================================================
+
+Create an interactive outfit builder.
+
+Layout:
+
+TOP
+↓
+BOTTOM
+↓
+SHOES
+↓
+BAG
+↓
+ACCESSORIES
+
+Allow users to replace individual items.
+
+Buttons:
+- Change Top
+- Change Bottom
+- Change Shoes
+- Change Bag
+- Change Accessories
+- Change Color
+- Improve Outfit
+
+Add drag-and-drop functionality where appropriate.
+
+Show live outfit preview.
+
+==================================================
+8. UPLOAD OUTFIT ANALYZER
+==================================================
+
+Create a feature called:
+
+“Analyze My Outfit”
+
+User uploads an outfit image.
+
+AI analyzes:
+- Clothing pieces
+- Colors
+- Style
+- Occasion
+- Color harmony
+- Accessories
+- Overall appearance
+
+Display:
+
+“Your Style Score: 87/100”
+
+Example AI recommendation:
+“Your outfit has a strong color balance. Try white sneakers and a smaller handbag for a cleaner look.”
+
+Also show:
+- Detected clothing
+- Recommended improvements
+- Similar outfit ideas
+
+==================================================
+9. WEATHER-BASED STYLING
+==================================================
+
+Integrate a weather API.
+
+Display:
+Temperature
+Weather condition
+Humidity
+Rain probability
+
+Then generate appropriate outfits.
+
+Examples:
+
+28°C + Sunny:
+Cotton top + wide-leg pants + sneakers
+
+24°C + Rain:
+Light jacket + jeans + waterproof shoes
+
+18°C:
+Sweater + trousers + boots
+
+Create a “What Should I Wear Today?” card.
+
+==================================================
+10. COLOR MATCHING
+==================================================
+
+Create an AI color matching feature.
+
+When the user selects one clothing item, suggest matching colors.
+
+Example:
+
+Selected:
+BLACK PANTS
+
+Recommended:
+White
+Beige
+Pastel Pink
+Light Blue
+Grey
+
+Show colors as beautiful circular color swatches.
+
+Add:
+“Generate Outfit With This Color”
+
+==================================================
+11. OCCASION STYLING
+==================================================
+
+Create an occasion page with attractive cards:
+
+College
+Office
+Date Night
+Party
+Wedding
+Travel
+Gym
+Festival
+
+Each card should show:
+- Fashion image
+- Occasion name
+- Recommended style
+- “Explore Looks”
+
+==================================================
+12. TRENDING LOOKS
+==================================================
+
+Create a “Trending Now” section.
+
+Categories:
+- Clean Girl
+- Streetwear
+- Old Money
+- Minimalist
+- Y2K
+- Korean-inspired
+- Indo-Western
+- Athleisure
+
+Each outfit card should include:
+- Image
+- Outfit name
+- Style
+- Like button
+- Save button
+- “Try This Look”
+
+==================================================
+13. SHOP THE LOOK
+==================================================
+
+For every generated outfit, display individual products.
+
+Example:
+
+White Oversized T-Shirt — ₹699
+Blue Wide-Leg Jeans — ₹999
+White Sneakers — ₹1,299
+Beige Tote Bag — ₹799
+
+Show:
+- Product image
+- Price
+- Rating
+- Shop Now button
+
+Add:
+“Complete Look: ₹3,796”
+
+Create a clean shopping experience without making the website look like a generic e-commerce store.
+
+==================================================
+14. SAVED OUTFITS
+==================================================
+
+Create a page called:
+“My Looks”
+
+Users can:
+- Save outfits
+- Like outfits
+- Delete outfits
+- Share outfits
+- Create collections
+
+Collections:
+- College Looks
+- Office Looks
+- Date Night
+- Travel
+- Party
+- Favorites
+
+==================================================
+15. PERSONAL STYLE PROFILE
+==================================================
+
+Create a profile page showing:
+
+My Style:
+Minimal + Casual + Indo-Western
+
+Favorite Colors:
+Black, White, Beige, Blue
+
+Preferred Occasions:
+College, Casual, Travel
+
+Budget:
+₹500–₹2,000
+
+Add:
+“Update Style Preferences”
+
+==================================================
+16. AI STYLE INSIGHTS
+==================================================
+
+Create a personalized analytics section.
+
+Show:
+- Most worn color
+- Favorite clothing category
+- Most used outfit style
+- Most frequently selected occasion
+- Wardrobe utilization
+- Outfit diversity
+
+Example:
+“You have 18 tops but only use 6 regularly.”
+
+AI recommendation:
+“Try creating 5 new outfits using your less-used clothes.”
+
+==================================================
+17. RESPONSIVE DESIGN
+==================================================
+
+The website must be fully responsive.
+
+Desktop:
+- Sidebar/dashboard navigation
+- Large outfit visualizations
+- Multi-column layouts
+
+Mobile:
+- Bottom navigation
+- Swipeable outfit cards
+- Mobile-friendly filters
+- Large touch-friendly buttons
+- Responsive wardrobe grid
+
+==================================================
+18. NAVIGATION
+==================================================
+
+Desktop navigation:
+
+Logo: StyleAI
+
+Home
+AI Stylist
+My Wardrobe
+Outfit Builder
+Trending
+Saved Looks
+Style Profile
+
+Top-right:
+Search
+Notifications
+Profile
+
+Mobile:
+Home
+Stylist
+Wardrobe
+Saved
+Profile
+
+==================================================
+19. DESIGN SYSTEM
+==================================================
+
+Use a premium fashion-tech aesthetic.
+
+Colors:
+- Warm white / off-white background
+- Black/dark charcoal text
+- Soft beige
+- Muted neutral tones
+- One elegant accent color
+
+Typography:
+- Modern elegant heading font
+- Clean sans-serif body font
+
+UI:
+- Rounded cards
+- Soft shadows
+- Large fashion imagery
+- Generous whitespace
+- Minimal borders
+- Smooth hover effects
+- Elegant micro-interactions
+
+Animations:
+- Smooth page transitions
+- Fade-in sections
+- Hover image zoom
+- Outfit generation animation
+- Skeleton loading states
+- Smooth card interactions
+
+Avoid:
+- Excessive gradients
+- Overly bright colors
+- Cluttered layouts
+- Cheap-looking UI
+- Too many animations
+- Generic AI-dashboard appearance
+
+==================================================
+20. PROFESSIONAL UX DETAILS
+==================================================
+
+Add:
+- Empty states
+- Loading states
+- Error states
+- Toast notifications
+- Confirmation dialogs
+- Image upload progress
+- Search
+- Filters
+- Sorting
+- Pagination where needed
+- Accessibility
+- Keyboard navigation
+- Mobile responsiveness
+
+==================================================
+21. AI CHAT STYLIST
+==================================================
+
+Add a floating AI stylist button.
+
+When clicked, open a chat interface.
+
+Example:
+
+User:
+“I have a black skirt. What should I wear with it?”
+
+AI:
+“Try a white fitted top, beige handbag and white sneakers for a clean casual look.”
+
+The AI should understand natural-language fashion questions.
+
+Examples:
+“What should I wear for college tomorrow?”
+“Create an outfit under ₹1500.”
+“Style my black jeans.”
+“I have a date tonight. What should I wear?”
+“Give me an outfit using only my wardrobe.”
+
+==================================================
+22. FINAL WEBSITE EXPERIENCE
+==================================================
+
+The entire website should feel like a real AI fashion startup.
+
+The key experience should be:
+
+1. User signs up
+2. Completes style profile
+3. Uploads clothes
+4. Builds virtual wardrobe
+5. AI understands their wardrobe
+6. User selects occasion + weather + style
+7. AI generates outfit
+8. User customizes the outfit
+9. AI gives style score
+10. User saves the outfit
+11. User can shop missing items
+12. AI continuously learns the user's preferences
+
+Make the UI visually impressive enough for a final-year CSE/Data Science portfolio project and suitable for showcasing in a job interview.
+
+Build the application with reusable components, clean folder structure, scalable architecture, realistic dummy data, proper responsive behavior, and production-quality UI.
+
+Do not create a simple template. Create a polished, unique, premium AI fashion platform.

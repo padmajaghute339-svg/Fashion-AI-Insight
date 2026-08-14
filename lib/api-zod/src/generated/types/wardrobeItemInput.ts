@@ -6,6 +6,10 @@
  * OpenAPI spec version: 0.1.0
  */
 
-export interface HealthStatus {
-  status: string;
+export interface WardrobeItemInput {
+  name: string;
+  category: string;
+  color: string;
+  style: string;
+  imageUrl: string;
 }

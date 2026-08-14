@@ -1,0 +1,28 @@
+kind = "web"
+previewPath = "/"
+title = "StyleAI"
+description = "A premium AI fashion styling platform that helps people turn their wardrobe into personalized outfits based on occasion, weather, style, and budget."
+version = "1.0.0"
+id = "artifacts/style-ai"
+router = "path"
+
+[[services]]
+name = "web"
+paths = [ "/" ]
+localPort = 19163
+
+[services.development]
+run = "pnpm --filter @workspace/style-ai run dev"
+
+[services.production]
+build = [ "pnpm", "--filter", "@workspace/style-ai", "run", "build" ]
+serve = "static"
+publicDir = "artifacts/style-ai/dist/public"
+
+[[services.production.rewrites]]
+from = "/*"
+to = "/index.html"
+
+[services.env]
+PORT = "19163"
+BASE_PATH = "/"
